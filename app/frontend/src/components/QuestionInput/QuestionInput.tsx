@@ -35,6 +35,7 @@ export const QuestionInput = ({ onSend, disabled, placeholder, clearOnSend, init
     };
 
     const onEnterPress = (ev: React.KeyboardEvent<Element>) => {
+        // `ev.nativeEvent.isComposing`: 日本語の変換中はチャットを送信しない
         if (ev.key === "Enter" && !ev.shiftKey && !ev.nativeEvent.isComposing) {
             ev.preventDefault();
             sendQuestion();
